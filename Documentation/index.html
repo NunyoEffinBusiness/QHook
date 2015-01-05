@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>QHook</title>
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,600' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Inconsolata:400,700' rel='stylesheet' type='text/css'>
+	<link href="styles.css" rel='stylesheet' type='text/css'>
+</head>
+<body>
+	<h2>QHook Documentation</h2>
+	<p>QHook is a Qt module for Windows that will capture keyboard and mouse events globally across the system.</p>
+	
+
+	<div class="block">
+		<h2>Classes</h2>
+		<ul>
+			<a href="qhook.html"><li>QHook</li></a>
+			<a href="qhookkeyevent.html"><li>QHookKeyEvent</li></a>
+			<a href="qhookmouseevent.html"><li>QHookMouseEvent</li></a>
+			<a href="qhookwheelevent.html"><li>QHookWheelEvent</li></a>
+		</ul>
+	</div>
+	
+	<div class="block">
+		<h2>Getting Started</h2>
+		<p>This section will guide you to setting up QHook into your project</p>
+	</div>
+
+	<div class="block">
+		<h2>Building QHook</h2>
+		<p>Before we can use QHook, we need to build it into a static library. So to start, let's make a directory to store the library and include files.<br/>
+		Create a folder in the root of your drive called 'libs' and within that a folder called 'QHook' (C:\libs\QHook). This is where we will store<br/>
+		the library and include files. Now navigate back to the QHook project directory, copy the 'include' folder, and paste it into the new QHook lib directory<br/>
+		(C:\libs\QHook). Now we can start building! Below are the guides to building and linking with MSVC</p>
+		<h3>MSVC Build And Link Guide</h3>
+		<p>Open the project into Qt Creator, configure a build kit for it, and build it as release. Now navigate to the build directory<br/>and move the 'QHook.lib' into the QHook library directory (C:\libs\QHook\lib).</p>
+
+		<p>Create a new Qt Project (or use your current one) and let's setup the project file. Go ahead and open your .pro file, and we are now going<br/>
+		to link the QHook library into the project. This is my project file...</p>
+
+		<div class="code-block" style="width:500px;">
+			<span class="g">QT</span> += core gui<br/>
+			<br/>
+			<span class="g">TARGET</span> = HookTest<br/>
+			<span class="g">TEMPLATE</span> = app<br/>
+			<br/>
+			<br/>
+			<span class="g">SOURCES</span> += main.cpp
+		</div>
+
+		<p>First we need to link the include path, which we can do with...</p>
+		<div class="code-block" style="width:500px;">
+			<span class="g">INCLUDEPATH</span> += C:/libs/QHook/include
+		</div>
+		<p>Next, we need to link QHook.lib... which is done like so...</p>
+		<div class="code-block" style="width:500px;">
+			<span class="g">LIBS</span> += -lC:/libs/QHook/libs/QHook 
+		</div>
+
+		<p>QHook is now linked into the projet. However, there is one bug that I seem to always get when using the Windows API which will result in a lot of unresolved symbol errors. So to fix this, we need to link one more library, which is a standard library in Windows...</p>
+
+		<div class="code-block" style="width:500px;">
+			<span class="g">LIBS</span> += -luser32
+		</div>
+
+		<p>So your final project file should look something like this...</p>
+
+		<div class="code-block" style="width:500px;">
+			<span class="g">QT</span> += core gui<br/>
+			<br/>
+			<span class="g">TARGET</span> = HookTest<br/>
+			<span class="g">TEMPLATE</span> = app<br/>
+			<br/>
+			<br/>
+			<span class="g">INCLUDEPATH</span> += C:/libs/QHook/include<br/>
+			<br/>
+			<span class="g">LIBS</span> += -lC:/libs/QHook/lib/QHook<br/>
+			<span class="g">LIBS</span> += -luser32<br/>
+			<br/>
+			<span class="g">SOURCES</span> += main.cpp
+		</div>
+
+		<p>You're project is now ready to go!</p>
+	</div>
+</body>
+</html>

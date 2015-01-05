@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>QHook</title>
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,600' rel='stylesheet' type='text/css'>
+	<link href="styles.css" rel='stylesheet' type='text/css'>
+</head>
+<body>
+	<h2>QHook Documentation</h2>
+	<a href="index.html">Back to Index</a>
+	<h3>QHook</h3>
+	<p>QHook is the main module of the library. It is responsible for managing the hooks as well as managing and receiving the callbacks from them.<br/></p>
+	
+	<div class="block"><h3>Public Functions</h3>
+		<table cellspacing="0" cellpadding="0">
+			<tbody>
+				<tr>
+					<td class="t l" align="right"></td>
+					<td class="t" align="left"><a href="#QHook">QHook</a>()</td>
+				</tr>
+				<tr>
+					<td class="l" align="right"></td>
+					<td  align="left"><a href="#~QHook">~QHook</a>()</td>
+				</tr>
+				<tr>
+					<td class="l" align="right">bool</td>
+					<td  align="left"><a href="#isKeyboardHooked">isKeyboardHooked()</a></td>
+				</tr>
+				<tr>
+					<td class="l" align="right">bool</td>
+					<td  align="left"><a href="#isMouseHooked">isMouseHooked()</a></td>
+				</tr>
+				<tr>
+					<td class="l" align="right">virtual bool</td>
+					<td class="" align="left"><a href="#keyPressEvent">keyPressEvent</a>(QHookKeyEvent *event)</td>
+				</tr>
+				<tr>
+					<td class="l" align="right">virtual bool</td>
+					<td class="" align="left"><a href="#keyReleaseEvent">keyReleaseEvent</a>(QHookKeyEvent *event)</td>
+				</tr>
+				<tr>
+					<td class="l" align="right">virtual bool</td>
+					<td class="" align="left"><a href="#mouseMoveEvent">mouseMoveEvent</a>(QHookMouseEvent *event)</td>
+				</tr>
+				<tr>
+					<td class="l" align="right">virtual bool</td>
+					<td class="" align="left"><a href="#mousePressEvent">mousePressEvent</a>(QHookMouseEvent *event)</td>
+				</tr>
+				<tr>
+					<td class="l" align="right">virtual bool</td>
+					<td class="" align="left"><a href="#mouseReleaseEvent">mouseReleaseEvent</a>(QHookMouseEvent *event)</td>
+				</tr>
+				<tr>
+					<td class="l" align="right">virtual bool</td>
+					<td class="" align="left"><a href="#mouseWheelEvent">mouseWheelEvent</a>(QHookWheelEvent *event)</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="block">
+		<h3>Public Slots</h3>
+		<table cellspacing="0" cellpadding="0">
+			<tbody>
+				<tr>
+					<td class="t l" align="right">void</td>
+					<td class="t" align="left"><a href="#hookKeyboard">hookKeyboard</a>()</td>
+				</tr>
+				<tr>
+					<td class="l" align="right">void</td>
+					<td  align="left"><a href="#hookMouse">hookMouse</a>()</td>
+				</tr>
+				<tr>
+					<td class="l" align="right">void</td>
+					<td  align="left"><a href="#unhookKeyboard">unhookKeyboard</a>()</td>
+				</tr>
+				<tr>
+					<td class="l" align="right">void</td>
+					<td  align="left"><a href="#unhookMouse">unhookMouse</a>()</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="block">
+		<h3>Static Public Members</h3>
+		<table cellspacing="0" cellpadding="0">
+			<tbody>
+				<tr>
+					<td class="t l" align="right">QHook*</td>
+					<td class="t" align="left"><a href="#instance">instance</a>()</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	
+	<a name="QHook"></a>
+	<div class="block">
+		<h3 class="code-header">QHook::<span>QHook</span>()</h3>
+		<p>Creates the hook manager.</p>
+	</div>
+
+	<a name="~QHook"></a>
+	<div class="block">
+		<h3 class="code-header">QHook::<span>~QHook</span>()</h3>
+		<p>Destroys the hooks and hook manager.</p>
+	</div>
+
+	<a name="isKeyboardHooked"></a>
+	<div class="block">
+		<h3 class="code-header"><span>bool</span> QHook::<span>isKeyboardHooked</span>()</h3>
+		<p>Checks if the keyboard is currently hooked.</p>
+	</div>
+
+	<a name="isMouseHooked"></a>
+	<div class="block">
+		<h3 class="code-header"><span>bool</span> QHook::<span>isMouseHooked</span>()</h3>
+		<p>Checks if the mouse is currently hooked.</p>
+	</div>
+
+	<a name="keyPressEvent"></a>
+	<div class="block">
+		<h3 class="code-header"><span>virtual bool</span> QHook::<span>keyPressEvent</span>(<a href="qhookkeyevent.html">QHookKeyEvent</a> *event)</h3>
+		<p>The callback function for key press events.</p>
+	</div>
+
+	<a name="keyReleaseEvent"></a>
+	<div class="block">
+		<h3 class="code-header"><span>virtual bool</span> QHook::<span>keyReleaseEvent</span>(<a href="qhookkeyevent.html">QHookKeyEvent</a> *event)</h3>
+		<p>The callback function for key release events.</p>
+	</div>
+
+	<a name="mouseMoveEvent"></a>
+	<div class="block">
+		<h3 class="code-header"><span>virtual bool</span> QHook::<span>mouseMoveEvent</span>(<a href="qhookmouseevent.html">QHookMouseEvent</a> *event)</h3>
+		<p>The callback function for mouse move events.</p>
+	</div>
+
+	<a name="mousePressEvent"></a>
+	<div class="block">
+		<h3 class="code-header"><span>virtual bool</span> QHook::<span>mousePressEvent</span>(<a href="qhookmouseevent.html">QHookMouseEvent</a> *event)</h3>
+		<p>The callback function for mouse button press events.</p>
+	</div>
+
+	<a name="mouseReleaseEvent"></a>
+	<div class="block">
+		<h3 class="code-header"><span>virtual bool</span> QHook::<span>mouseReleaseEvent</span>(<a href="qhookmouseevent.html">QHookMouseEvent</a> *event)</h3>
+		<p>The callback function for mouse button release events.</p>
+	</div>
+
+	<a name="mouseWheelEvent"></a>
+	<div class="block">
+		<h3 class="code-header"><span>virtual bool</span> QHook::<span>mouseWheelEvent</span>(<a href="qhookwheelevent.html">QHookWheelEvent</a> *event)</h3>
+		<p>The callback function for mouse wheel events.</p>
+	</div>
+
+	<a name="hookKeyboard"></a>
+	<div class="block">
+		<h3 class="code-header"><span>void</span> QHook::<span>hookKeyboard</span>()</h3>
+		<p>Hook the keyboard and start tracking input.</p>
+	</div>
+
+	<a name="hookMouse"></a>
+	<div class="block">
+		<h3 class="code-header"><span>void</span> QHook::<span>hookMouse</span>()</h3>
+		<p>Hook the mouse and start tracking input.</p>
+	</div>
+
+	<a name="unhookKeyboard"></a>
+	<div class="block">
+		<h3 class="code-header"><span>void</span> QHook::<span>unhookKeyboard</span>()</h3>
+		<p>Unhook the keyboard and stop tracking input.</p>
+	</div>
+
+	<a name="unhookMouse"></a>
+	<div class="block">
+		<h3 class="code-header"><span>void</span> QHook::<span>unhookMouse</span>()</h3>
+		<p>Unhook the mouse and stop tracking input.</p>
+	</div>
+
+	<a name="instance"></a>
+	<div class="block">
+		<h3 class="code-header"><a href="qhook.html">QHook</a>* QHook::<span>instance</span>()</h3>
+		<p>Get the current QHook instance anywhere in the application</p>
+	</div>
+	
+
+</body>
+</html>

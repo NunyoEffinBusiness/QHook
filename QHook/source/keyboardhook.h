@@ -11,10 +11,11 @@ class KeyboardHook
 public:
     KeyboardHook();
 
+    bool isHooked();
+
     void hook();
     void unhook();
 
-    bool isHooked();
 
 private:
     HHOOK p_Hook;

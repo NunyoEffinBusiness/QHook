@@ -1,0 +1,49 @@
+*{
+	font-family: 'Open Sans', sans-serif;
+}
+
+.block{
+	margin-top:60px;
+}
+
+table td{
+	border-right:1px solid #ccc;
+	border-bottom:1px solid #ccc;
+	padding:3px 20px;
+}
+
+table td.t{
+	border-top:1px solid #ccc;
+}
+
+table td.l{
+	border-left:1px solid #ccc;
+}
+
+a{
+	color:#5caa15;
+	font-weight: 600;
+}
+
+a:hover{
+	color:#46a2da;
+}
+
+.code-header{
+	font-weight: 400;
+}
+
+.code-header span{
+	font-weight: 600;
+}
+
+.code-block{
+	font-family: 'Inconsolata';
+	background:#404244;
+	color:#fff;
+	padding:25px;
+}
+
+.code-block .g{
+	color:#5caa15;
+}

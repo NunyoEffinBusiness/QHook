@@ -12,6 +12,10 @@ public:
     int keyCode();
     int scanCode();
 
+    bool isAlt();
+    bool isExtended();
+    bool isInjected();
+
 
 private:
     const int p_Flags;

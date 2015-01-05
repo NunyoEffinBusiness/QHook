@@ -3,7 +3,6 @@
 
 #include <QObject>
 #include <Windows.h>
-#include <QDebug>
 
 #include "qhookkeyevent.h"
 
@@ -12,8 +11,11 @@ class KeyboardHook
 public:
     KeyboardHook();
 
+    bool isHooked();
+
     void hook();
     void unhook();
+
 
 private:
     HHOOK p_Hook;

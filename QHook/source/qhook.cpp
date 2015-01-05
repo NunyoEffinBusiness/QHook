@@ -50,11 +50,11 @@ bool QHook::isMouseHooked(){ return p_MouseHook->isHooked(); }
  */
 
 
-bool QHook::keyPressEvent(QHookKeyEvent *event){ Q_UNUSED(event) return true; }
-bool QHook::keyReleaseEvent(QHookKeyEvent *event){ Q_UNUSED(event) return true; }
+bool QHook::keyPressEvent(QHookKeyEvent *event){ return true; }
+bool QHook::keyReleaseEvent(QHookKeyEvent *event){ return true; }
 
 
-bool QHook::mouseMoveEvent(QHookMouseEvent *event){ Q_UNUSED(event) return true; }
-bool QHook::mousePressEvent(QHookMouseEvent *event){ Q_UNUSED(event) return true; }
-bool QHook::mouseReleaseEvent(QHookMouseEvent *event){ Q_UNUSED(event) return true; }
-bool QHook::mouseWheelEvent(QHookWheelEvent *event){ Q_UNUSED(event) return true; }
+bool QHook::mouseMoveEvent(QHookMouseEvent *event){ return true; }
+bool QHook::mousePressEvent(QHookMouseEvent *event){ return true; }
+bool QHook::mouseReleaseEvent(QHookMouseEvent *event){ return true; }
+bool QHook::mouseWheelEvent(QHookWheelEvent *event){ return true; }

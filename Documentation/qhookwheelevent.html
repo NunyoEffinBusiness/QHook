@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>QHookWheelEvent - QHook</title>
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,600' rel='stylesheet' type='text/css'>
+	<link href="styles.css" rel='stylesheet' type='text/css'>
+</head>
+<body>
+	<h2>QHook Documentation</h2>
+	<a href="index.html">Back to Index</a>
+	<h3>QHookWheelEvent</h3>
+	<p>QHookWheelEvent is a container for the mouse wheel information recieved in the callback functions<br/></p>
+	
+	<div class="block"><h3>Public Types</h3>
+		<table cellspacing="0" cellpadding="0">
+			<tbody>
+				<tr>
+					<td class="t l" align="right">enum</td>
+					<td class="t" align="left"><a href="#QHookWheelEvent::Direction">Direction</a> { Down = 0, Up = 1 }</td>
+				</tr>
+				<tr>
+					<td class="l" align="right">enum</td>
+					<td class="" align="left"><a href="#QHookWheelEvent::Flags">Flags</a> { Injected }</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<div class="block"><h3>Public Functions</h3>
+		<table cellspacing="0" cellpadding="0">
+			<tbody>
+				<tr>
+					<td class="t l" align="right"></td>
+					<td class="t" align="left"><a href="#QHookWheelEvent">QHookWheelEvent</a>(Direction direction, int delta, QPoint pos, int flags)</td>
+				</tr>
+				<tr>
+					<td class="l" align="right">QHookWheelEvent::Direction</td>
+					<td  align="left"><a href="#direction">direction</a>()</td>
+				</tr>
+				<tr>
+					<td class="l" align="right">int</td>
+					<td  align="left"><a href="#delta">delta</a>()</td>
+				</tr>
+				<tr>
+					<td class="l" align="right">int</td>
+					<td class="" align="left"><a href="#flags">flags</a>()</td>
+				</tr>
+				<tr>
+					<td class="l" align="right">bool</td>
+					<td class="" align="left"><a href="#isInjected">isInjected</a>()</td>
+				</tr>
+				<tr>
+					<td class="l" align="right">QPoint</td>
+					<td class="" align="left"><a href="#pos">pos</a>()</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<a name="QHookWheelEvent::Direction"></a>
+	<div class="block"><h3>QHookWheelEvent::Direction</h3>
+		<table cellspacing="0" cellpadding="0">
+			<tbody>
+				<tr>
+					<td class="t l" align="right">Down</td>
+					<td class="t" align="center">0</td>
+					<td class="t" align="left">The wheel was moved down.</td>
+				</tr>
+				<tr>
+					<td class="l" align="right">Up</td>
+					<td  align="center">1</td>
+					<td  align="left">The wheel was moved up.</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<a name="QHookWheelEvent::Flags"></a>
+	<div class="block"><h3>QHookWheelEvent::Flags</h3>
+		<table cellspacing="0" cellpadding="0">
+			<tbody>
+				<tr>
+					<td class="t l" align="right">Injected</td>
+					<td class="t" align="center">0x1</td>
+					<td class="t" align="left">The event was injected programmatically.</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	
+	<a name="QHookWheelEvent"></a>
+	<div class="block">
+		<h3 class="code-header">QHookWheelEvent::<span>QHookWheelEvent</span>(<a href="#QHookWheelEvent::Direction">Direction</a> direction, int delta, QPoint pos, int flags)</h3>
+		<p>Constructs a mouse wheel event container.</p>
+	</div>
+
+	<a name="direction"></a>
+	<div class="block">
+		<h3 class="code-header"><a href="#QHookWheelEvent::Direction">QHookWheelEvent::Direction</a> QHookWheelEvent::<span>direction</span>()</h3>
+		<p>Returns the wheel direction. <a href="#QHookWheelEvent::Direction">QHookWheelEvent::Direction</a></p>
+	</div>
+
+	<a name="delta"></a>
+	<div class="block">
+		<h3 class="code-header"><span>int</span> QHookWheelEvent::<span>delta</span>()</h3>
+		<p>Returns the wheel delta for the event.</p>
+	</div>
+
+	<a name="flags"></a>
+	<div class="block">
+		<h3 class="code-header"><span>int</span> QHookWheelEvent::<span>flags</span>()</h3>
+		<p>Returns the flags for the event. <a href="#QHookWheelEvent::Flags">QHookWheelEvent::Flags</a></p>
+	</div>
+
+	<a name="isInjected"></a>
+	<div class="block">
+		<h3 class="code-header"><span>bool</span> QHookWheelEvent::<span>isInjected</span>()</h3>
+		<p>Checks if the event was injected programmatically.</p>
+	</div>
+
+	<a name="pos"></a>
+	<div class="block">
+		<h3 class="code-header"><a href="http://doc.qt.io/qt-5/qpoint.html">QPoint</a> QHookWheelEvent::<span>pos</span>()</h3>
+		<p>Returns the position of the cursor</p>
+	</div>
+
+
+</body>
+</html>

@@ -11,6 +11,7 @@
 
 #include "keyboardhook.h"
 #include "mousehook.h"
+#include <QDebug>
 
 
 class QHook : public QObject
@@ -21,11 +22,6 @@ public:
     ~QHook();
 
     static QHook* instance();
-
-    void hookKeyboard();
-    void hookMouse();
-    void unhookKeyboard();
-    void unhookMouse();
 
     bool isKeyboardHooked();
     bool isMouseHooked();
@@ -42,6 +38,14 @@ public:
 private:
     KeyboardHook *p_KeyboardHook;
     MouseHook *p_MouseHook;
+
+
+public slots:
+    void hookKeyboard();
+    void hookMouse();
+    void unhookKeyboard();
+    void unhookMouse();
+
 };
 
 #endif // QHOOK_H

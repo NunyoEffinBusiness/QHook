@@ -13,10 +13,11 @@ class MouseHook
 public:
     MouseHook();
 
+    bool isHooked();
+
     void hook();
     void unhook();
 
-    bool isHooked();
 
 private:
     HHOOK p_Hook;

@@ -11,28 +11,30 @@ LRESULT CALLBACK mouseHookProc(int nCode, WPARAM wParam, LPARAM lParam)
         MSLLHOOKSTRUCT *p = (MSLLHOOKSTRUCT*) lParam;
         bool result = true;
 
+        int flags;
+        flags |= (p->flags & LLMHF_INJECTED) ? QHookMouseEvent::Injected: 0;
 
         if(wParam == WM_LBUTTONDOWN)
-            result = QHook::instance()->mousePressEvent(new QHookMouseEvent(QHookMouseEvent::Button, QHookMouseEvent::LeftButton, QPoint(p->pt.x, p->pt.y)));
+            result = QHook::instance()->mousePressEvent(new QHookMouseEvent(QHookMouseEvent::Button, QHookMouseEvent::LeftButton, QPoint(p->pt.x, p->pt.y), flags));
         else if(wParam == WM_LBUTTONUP)
-            result = QHook::instance()->mouseReleaseEvent(new QHookMouseEvent(QHookMouseEvent::Button, QHookMouseEvent::LeftButton, QPoint(p->pt.x, p->pt.y)));
+            result = QHook::instance()->mouseReleaseEvent(new QHookMouseEvent(QHookMouseEvent::Button, QHookMouseEvent::LeftButton, QPoint(p->pt.x, p->pt.y), flags));
 
         if(wParam == WM_RBUTTONDOWN)
-            result = QHook::instance()->mousePressEvent(new QHookMouseEvent(QHookMouseEvent::Button, QHookMouseEvent::RightButton, QPoint(p->pt.x, p->pt.y)));
+            result = QHook::instance()->mousePressEvent(new QHookMouseEvent(QHookMouseEvent::Button, QHookMouseEvent::RightButton, QPoint(p->pt.x, p->pt.y), flags));
         else if(wParam == WM_RBUTTONUP)
-            result = QHook::instance()->mouseReleaseEvent(new QHookMouseEvent(QHookMouseEvent::Button, QHookMouseEvent::RightButton, QPoint(p->pt.x, p->pt.y)));
+            result = QHook::instance()->mouseReleaseEvent(new QHookMouseEvent(QHookMouseEvent::Button, QHookMouseEvent::RightButton, QPoint(p->pt.x, p->pt.y), flags));
 
         if(wParam == WM_MBUTTONDOWN)
-            result = QHook::instance()->mousePressEvent(new QHookMouseEvent(QHookMouseEvent::Button, QHookMouseEvent::MiddleButton, QPoint(p->pt.x, p->pt.y)));
+            result = QHook::instance()->mousePressEvent(new QHookMouseEvent(QHookMouseEvent::Button, QHookMouseEvent::MiddleButton, QPoint(p->pt.x, p->pt.y), flags));
         else if(wParam == WM_MBUTTONUP)
-            result = QHook::instance()->mouseReleaseEvent(new QHookMouseEvent(QHookMouseEvent::Button, QHookMouseEvent::MiddleButton, QPoint(p->pt.x, p->pt.y)));
+            result = QHook::instance()->mouseReleaseEvent(new QHookMouseEvent(QHookMouseEvent::Button, QHookMouseEvent::MiddleButton, QPoint(p->pt.x, p->pt.y), flags));
 
         if(wParam == WM_MOUSEMOVE)
-            result = QHook::instance()->mouseMoveEvent(new QHookMouseEvent(QHookMouseEvent::Move, QHookMouseEvent::RightButton, QPoint(p->pt.x, p->pt.y)));
+            result = QHook::instance()->mouseMoveEvent(new QHookMouseEvent(QHookMouseEvent::Move, QHookMouseEvent::RightButton, QPoint(p->pt.x, p->pt.y), flags));
 
         if(wParam == WM_MOUSEWHEEL)
             result = QHook::instance()->mouseWheelEvent(new QHookWheelEvent((HIWORD(p->mouseData) > 0) ? QHookWheelEvent::Up : QHookWheelEvent::Down,
-                                                                           HIWORD(p->mouseData), QPoint(p->pt.x, p->pt.y)));
+                                                                           HIWORD(p->mouseData), QPoint(p->pt.x, p->pt.y), flags));
 
         if(!result)
             return 1;
@@ -46,6 +48,8 @@ MouseHook::MouseHook()
     p_Hook = NULL;
     mouseHook = p_Hook;
 }
+
+bool MouseHook::isHooked(){ return (p_Hook == NULL) ? false : true; }
 
 void MouseHook::hook()
 {
@@ -66,4 +70,3 @@ void MouseHook::unhook()
 }
 
 
-void MouseHook::isHooked(){ return (p_Hook == NULL) ? false : true; }
