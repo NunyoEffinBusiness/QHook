@@ -24,7 +24,7 @@ void QHook::hookKeyboard()
 
 void QHook::hookMouse()
 {
-    p_KeyboardHook->hook();
+    p_MouseHook->hook();
 }
 
 void QHook::unhookKeyboard()
